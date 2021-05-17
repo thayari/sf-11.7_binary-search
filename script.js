@@ -88,11 +88,15 @@ class Game {
 	changeValueHandler(callback) {
 		
 		if (this.gameRun) {
-			if (this.minValue >= this.maxValue) {
+			if (this.minValue == this.maxValue) {
 				this.wrongValue();
 			} else {
 				callback();
 				this.newRound();
+				// исправление бага - при нажатии постоянно на кнопку уменьшения максимальное значение становилось меньше минимального
+				if (this.minValue > this.maxValue) {
+					this.wrongValue();
+				}
 			}
 		}
 	};
@@ -181,7 +185,7 @@ class Game {
 		};
 
 		if (num == 0) {
-			return 0;
+			return 'ноль';
 		};
 
 		// проверить разрядность
