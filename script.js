@@ -93,8 +93,6 @@ class Game {
 			} else {
 				callback();
 				this.newRound();
-				console.log('min ' + this.minValue);
-		console.log('max ' + this.maxValue);
 			}
 		}
 	};
